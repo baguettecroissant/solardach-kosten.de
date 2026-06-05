@@ -1,0 +1,221 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* === PALETTE "SOLARDACH" — Design System solardach-kosten.de === */
+@theme {
+  /* Brand-Blau — Vertrauen und Technologie */
+  --color-brand-50: #E3F2FD;
+  --color-brand-100: #BBDEFB;
+  --color-brand-200: #90CAF9;
+  --color-brand-500: #0D47A1;
+  --color-brand-600: #1565C0;
+  --color-brand-700: #0D47A1;
+  --color-brand-800: #0A2F6C;
+  --color-brand-900: #071F47;
+
+  /* Accent-Orange — CTA und Solarenergie */
+  --color-accent-400: #FFB300;
+  --color-accent-500: #FF6F00;
+  --color-accent-600: #E65100;
+
+  /* Gelb/Gold — Sonne und Akzente */
+  --color-amber-400: #FFD54F;
+  --color-amber-500: #FFC107;
+  --color-amber-600: #FFB300;
+
+  /* Statusfarben */
+  --color-success: #2E7D32;
+  --color-warning: #F9A825;
+
+  /* Dark backgrounds */
+  --color-dark: #212121;
+}
+
+/* === TYPOGRAPHIE === */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: #212121;
+  background-color: #FAFAFA;
+}
+
+h1, h2, h3, h4, h5, h6,
+.font-heading {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  font-weight: 700;
+}
+
+.font-data,
+.font-mono {
+  font-family: 'Fira Code', 'Courier New', monospace;
+}
+
+/* === HERO GRADIENT — Dunkelblau mit Overlay === */
+.gradient-hero {
+  background: linear-gradient(135deg, rgba(13, 71, 161, 0.95) 0%, rgba(21, 101, 192, 0.90) 50%, rgba(13, 71, 161, 0.85) 100%);
+  padding-top: 5.5rem !important; /* Spacing for the transparent navbar */
+}
+
+.gradient-hero-image {
+  background-image: var(--hero-bg, none);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  padding-top: 6.5rem !important; /* Extra spacing for the homepage hero */
+}
+.gradient-hero-image::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(13, 71, 161, 0.92), rgba(21, 101, 192, 0.80));
+  z-index: 0;
+}
+.gradient-hero-image > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* === CTA GRADIENT — Solar-Orange === */
+.cta-gradient {
+  background: linear-gradient(135deg, #FF6F00, #FFB300);
+}
+.cta-gradient:hover {
+  background: linear-gradient(135deg, #E65100, #FF6F00);
+  transform: scale(1.02);
+  box-shadow: 0 0 20px rgba(255, 111, 0, 0.4);
+}
+
+/* === SECTION GRADIENT === */
+.section-gradient {
+  background: linear-gradient(180deg, #FAFAFA 0%, #E3F2FD 100%);
+}
+
+/* === MICRO-ANIMATIONS === */
+
+/* Pulsieren der Sonne / Badges */
+@keyframes sun-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(1.04); opacity: 1; }
+}
+.sun-pulse {
+  animation: sun-pulse 3s ease-in-out infinite;
+}
+
+/* Entrée progressive des sections */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up {
+  animation: fade-up 0.5s ease-out both;
+}
+
+/* Compteur animé */
+@keyframes count-up {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.count-up {
+  animation: count-up 0.7s ease-out both;
+  animation-delay: 0.2s;
+}
+
+/* Cards hover effect */
+.card-hover {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(13, 71, 161, 0.08), 0 8px 10px -6px rgba(13, 71, 161, 0.05);
+  border-color: #90CAF9;
+}
+
+/* CTA button arrow animation */
+@keyframes arrow-bounce {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(4px); }
+}
+.arrow-animate:hover .arrow-icon {
+  animation: arrow-bounce 0.6s ease-in-out infinite;
+}
+
+/* === FAQ Accordion === */
+details summary {
+  cursor: pointer;
+  list-style: none;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+details[open] summary .faq-chevron {
+  transform: rotate(180deg);
+}
+.faq-chevron {
+  transition: transform 0.25s ease;
+}
+
+/* === Price Cards — Solar-Orange Left Border === */
+.price-card {
+  border-left: 4px solid #FF6F00;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.price-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(255, 111, 0, 0.15);
+}
+
+/* === Info Cards === */
+.info-card {
+  background: #E3F2FD;
+  border-left: 4px solid #0D47A1;
+}
+
+/* === Price tables === */
+.price-table th {
+  background: #E3F2FD;
+  color: #0D47A1;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+}
+.price-table td.price {
+  font-family: 'Fira Code', monospace;
+  color: #FF6F00;
+  font-weight: 600;
+}
+.price-table tr:nth-child(even) {
+  background: #FAFAFA;
+}
+
+/* === Navbar scroll effect === */
+.navbar-scroll {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+.navbar-scrolled {
+  background-color: rgba(13, 71, 161, 0.97) !important;
+  box-shadow: 0 4px 20px rgba(13, 71, 161, 0.2);
+}
+
+/* === Footer === */
+.footer-bg {
+  background-color: #212121;
+  color: #FAFAFA;
+}
+
+/* === Sticky CTA Animation === */
+.sticky-cta-enter {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(100%); opacity: 0; }
+  to   { transform: translateY(0);    opacity: 1; }
+}
+
+/* === DSGVO Cookie Banner === */
+.cookie-banner {
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
+}
