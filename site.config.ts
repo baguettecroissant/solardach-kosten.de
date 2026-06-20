@@ -26,7 +26,7 @@ export const siteConfig = {
   // === MONETARISIERUNG (TAP TAP HOME) ===
   taptaphome: {
     // Mode can be: 'redirect' (tracking link), 'iframe', or 'api'
-    mode: 'redirect' as 'redirect' | 'iframe' | 'api',
+    mode: 'api' as 'redirect' | 'iframe' | 'api',
     trackingLinkPV: "https://www.taptaphome.com/?utm_source=affiliate&utm_campaign=solardach_kosten_de", // Fallback / placeholder tracking link
     partnerName: "DAA GmbH (BOSCH-Gruppe)",
     contactPerson: "Tuuli Himme (tuuli.himme@taptaphome.com)",
